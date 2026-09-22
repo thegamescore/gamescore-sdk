@@ -86,6 +86,8 @@ The former `@gamescore/sdk/testing` subpath has moved to `@gamescore/sdk-testing
 
 ## Local development
 
+You do **not** need `nest-game-server` running locally to build the SDK, run tests, or use the playground. The playground uses an in-memory mock backend for identities, scores, and rewards. Real campaign/match integration requires an SDK-enabled game server, which can run locally or remotely; set `apiOrigin` to its URL.
+
 From a repository checkout (Node 22+):
 
 ```sh

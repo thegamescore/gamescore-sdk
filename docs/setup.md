@@ -6,7 +6,9 @@ Use this guide to build `@gamescore/sdk`, connect a browser game, and mount it o
 
 - Node.js 22 or newer and npm for repository development.
 - A modern browser and a game served over HTTP or HTTPS.
-- For real matches: the SDK-enabled GamesCore launcher, game server, and a configured campaign. The SDK alone does not provide these services.
+- For real matches: the SDK-enabled GamesCore launcher, `nest-game-server`, and a configured campaign. The server can run locally or remotely; point `apiOrigin` at its URL. The SDK alone does not provide these services.
+
+You do **not** need `nest-game-server` running locally to build the SDK, run tests, or use the local playground. The playground provides an in-memory mock backend for identities, scores, and rewards.
 
 The package is not published to a registry. Start with a checkout of this repository. The game and website imports are browser APIs; initialize them on the client if your app uses server rendering.
 
