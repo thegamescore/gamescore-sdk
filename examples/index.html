@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Campaign playground · GamesCore</title>
+    <link rel="stylesheet" href="/examples/playground.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="/">gamescore<span>®</span></a
+      ><span class="environment"><i></i> Local playground</span>
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">A LITTLE PLAY. EVERY BRAND.</p>
+        <h1>Your next campaign,<br /><em>ready to play.</em></h1>
+        <p>Pick a brand, choose how it opens, and try the experience.</p>
+      </div>
+      <section class="workspace" aria-label="Campaign setup">
+        <fieldset class="brands">
+          <legend><span class="step">01</span> Choose your brand</legend>
+          <div class="brand-grid">
+            <label class="brand-card glow"
+              ><input type="radio" name="brand" value="glow" /><span
+                class="brand-art"
+                ><span class="brand-logo">glow beauty.</span
+                ><span class="art-note">A little play. A little beauty.</span
+                ><span class="orb orb-one"></span
+                ><span class="orb orb-two"></span></span
+              ><span class="card-details"
+                ><span
+                  ><strong>Glow Beauty</strong
+                  ><small>Catch your glow</small></span
+                ><span class="selection"
+                  ><span class="selected-label">Selected</span
+                  ><span class="check" aria-hidden="true"></span></span></span
+            ></label>
+            <label class="brand-card sprint"
+              ><input type="radio" name="brand" value="sprint" /><span
+                class="brand-art"
+                ><span class="brand-logo">SPRINT<span> CLUB ↗</span></span
+                ><span class="art-note">Find your next gear.</span
+                ><span class="speed-lines"></span></span
+              ><span class="card-details"
+                ><span
+                  ><strong>Sprint Club</strong
+                  ><small>Flip gravity. Keep moving.</small></span
+                ><span class="selection"
+                  ><span class="selected-label">Selected</span
+                  ><span class="check" aria-hidden="true"></span></span></span
+            ></label>
+            <label class="brand-card neutral"
+              ><input type="radio" name="brand" value="neutral" /><span
+                class="brand-art"
+                ><span class="brand-logo">gamescore<span>arcade</span></span
+                ><span class="art-note">One more round?</span
+                ><span class="arcade-shape"></span></span
+              ><span class="card-details"
+                ><span
+                  ><strong>GamesCore</strong
+                  ><small>The classic playground</small></span
+                ><span class="selection"
+                  ><span class="selected-label">Selected</span
+                  ><span class="check" aria-hidden="true"></span></span></span
+            ></label>
+          </div>
+        </fieldset>
+        <div class="setup-bottom">
+          <fieldset class="presentation">
+            <legend><span class="step">02</span> Choose your view</legend>
+            <div class="view-options">
+              <label
+                ><input
+                  type="radio"
+                  name="presentation"
+                  value="modal"
+                  checked
+                /><span
+                  ><strong>Modal <span aria-hidden="true">↗</span></strong
+                  ><small>Opens over this page</small></span
+                ></label
+              >
+              <label
+                ><input type="radio" name="presentation" value="inline" /><span
+                  ><strong>Inline <span aria-hidden="true">▣</span></strong
+                  ><small>Plays inside this page</small></span
+                ></label
+              >
+            </div>
+          </fieldset>
+          <div class="launch-panel">
+            <p id="selection-summary">Choose a brand to get started</p>
+            <div class="actions">
+              <button id="launch" disabled>
+                Launch campaign <span aria-hidden="true">↗</span></button
+              ><button id="destroy" disabled>Close campaign</button>
+            </div>
+            <p id="status" role="status" aria-live="polite">
+              Select a campaign above to enable launch.
+            </p>
+          </div>
+        </div>
+      </section>
+      <div id="game-container" hidden aria-label="Campaign preview"></div>
+      <section class="integration" aria-labelledby="integration-title">
+        <div class="integration-heading">
+          <div>
+            <p class="eyebrow">TAKE IT TO YOUR WEBSITE</p>
+            <h2 id="integration-title">Make it part of your page.</h2>
+            <p>Copy a starter snippet for your selected campaign and view.</p>
+          </div>
+          <button id="copy-id" disabled>Copy campaign ID</button>
+        </div>
+        <div class="code-toolbar">
+          <div
+            class="code-options"
+            role="group"
+            aria-label="Integration format"
+          >
+            <button data-code="html" aria-pressed="true">
+              HTML / JavaScript</button
+            ><button data-code="sdk" aria-pressed="false">SDK</button>
+          </div>
+          <button id="copy-code" disabled>Copy code</button>
+        </div>
+        <p id="code-context" class="code-context"></p>
+        <pre
+          tabindex="0"
+          aria-label="Integration code"
+        ><code id="integration-code">Select a brand above to see its integration code.</code></pre>
+        <p id="integration-note" class="integration-note">
+          Choose a brand to prepare your integration.
+        </p>
+        <p id="copy-status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="event-docs" aria-labelledby="events-title">
+        <div class="integration-heading">
+          <div>
+            <p class="eyebrow">GAME DEVELOPER REFERENCE · PROTOCOL V1</p>
+            <h2 id="events-title">Every event. The right order.</h2>
+            <p>
+              All 14 public game events, payloads, and integration
+              responsibilities.
+            </p>
+          </div>
+          <a href="#required-event-order">Jump to required order ↓</a>
+        </div>
+        <div id="event-reference"></div>
+      </section>
+      <footer>
+        <span>Real games. A space to experiment.</span
+        ><span>Demo scores & rewards · No real rewards issued</span>
+      </footer>
+    </main>
+    <script type="module" src="/examples/playground.mjs"></script>
+    <script type="module" src="/examples/game-events.mjs"></script>
+  </body>
+</html>

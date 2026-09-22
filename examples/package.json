@@ -1,0 +1,17 @@
+{
+  "name": "@gamescore/sdk-examples",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "setup": "node setup.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test:browser": "node test/browser.mjs"
+  },
+  "devDependencies": {
+    "@gamescore/sdk": "file:..",
+    "@gamescore/sdk-testing": "file:../testing",
+    "@playwright/test": "^1.58.0"
+  }
+}

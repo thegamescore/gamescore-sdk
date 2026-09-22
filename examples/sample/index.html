@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>SDK reference game</title>
+  <style>
+    body {
+      background: #15152a;
+      color: white;
+      font: 20px system-ui;
+      text-align: center;
+      padding: 30px;
+    }
+    button {
+      padding: 18px;
+      border: 0;
+      border-radius: 12px;
+      margin: 10px;
+      background: #a78bfa;
+      color: #16112b;
+    }
+    #error {
+      color: #fda4af;
+    }
+  </style>
+  <h1>Tap for points</h1>
+  <p id="status">Connecting…</p>
+  <button id="start" disabled>Start</button
+  ><button id="score" disabled>+10 points</button
+  ><button id="finish" disabled>Finish</button
+  ><button id="close">Close</button>
+  <p id="error" role="alert"></p>
+  <script type="module">
+    import { createGameSDK } from "/dist/index.js";
+    const sdk = createGameSDK();
+    let score = 0,
+      start = 0;
+    const el = (id) => document.getElementById(id);
+    sdk.on("session:initialized", () => {
+      el("start").disabled = false;
+      el("status").textContent = "Ready";
+    });
+    sdk.on("match:started", () => {
+      start = performance.now();
+      el("score").disabled = el("finish").disabled = false;
+      el("status").textContent = "Playing";
+    });
+    sdk.on("match:completed", () => {
+      el("status").textContent = "Saved";
+    });
+    sdk.on("sdk:error", (e) => {
+      el("error").textContent = e.message;
+    });
+    el("start").onclick = () => {
+      el("start").disabled = true;
+      sdk.emit("match:start-requested");
+    };
+    el("score").onclick = () => {
+      score += 10;
+      el("status").textContent = score + " points";
+    };
+    el("finish").onclick = () => {
+      el("score").disabled = el("finish").disabled = true;
+      sdk.emit("match:end-requested", {
+        score,
+        elapsedMs: Math.round(performance.now() - start),
+      });
+    };
+    el("close").onclick = () => sdk.emit("session:close-requested");
+    sdk.emit("game:ready");
+  </script>
+</html>

@@ -1,0 +1,11 @@
+node_modules/
+dist/
+examples/vendor/
+test-results/
+playwright-report/
+coverage/
+package-lock.json
+*.tgz
+.agents/
+.codex/
+.git/

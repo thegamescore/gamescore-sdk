@@ -1,0 +1,44 @@
+{
+  "name": "@gamescore/sdk",
+  "version": "0.1.0",
+  "description": "Event-based browser game integration for GamesCore",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "docs/events.md",
+    "docs/configuration.md",
+    "docs/server.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./host": {
+      "types": "./dist/host.d.ts",
+      "import": "./dist/host.js"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/clean-dist.mjs && tsc && node scripts/build.mjs",
+    "test": "npm run build:all && npm test --workspace @gamescore/sdk-testing",
+    "typecheck": "tsc --noEmit && npm run typecheck --workspace @gamescore/sdk-testing && npm run typecheck --workspace @gamescore/sdk-examples",
+    "setup:examples": "npm run setup --workspace @gamescore/sdk-examples --",
+    "dev": "npm run build:all && npm run dev --workspace @gamescore/sdk-examples",
+    "test:browser": "npm run build:all && npm run test:browser --workspace @gamescore/sdk-examples",
+    "prepack": "npm run build",
+    "build:all": "npm run build && npm run build --workspace @gamescore/sdk-testing",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "prettier": "3.9.8",
+    "typescript": "^5.9.0"
+  },
+  "workspaces": [
+    "examples",
+    "testing"
+  ]
+}
