@@ -2,6 +2,8 @@
 
 Connect a browser game to the GamesCore launcher and game server using typed events. Games do not call HTTP endpoints, manage player IDs, or send iframe messages themselves.
 
+Start with the [SDK setup guide](docs/setup.md) for prerequisites, installation, game integration, campaign hosting, and the local playground.
+
 ```text
 Game → @gamescore/sdk → iframe event bridge → SDK host → Nest game server
                                                    ↳ existing branded launcher
@@ -66,6 +68,7 @@ Deploy the updated launcher before pointing the SDK at a production URL. The def
 
 ## Documentation
 
+- [SDK setup guide](docs/setup.md)
 - [Configuration and branding](docs/configuration.md)
 - [Events, lifecycle, errors, and transport](docs/events.md)
 - [Server integration and legacy migration](docs/server.md)
@@ -77,7 +80,7 @@ Deploy the updated launcher before pointing the SDK at a production URL. The def
 - `examples/` → private playground workspace, campaign fixtures, games, integration adapters, setup, and browser tests.
 - `docs/` → SDK reference documentation; the development plan is excluded from the package.
 
-Only the compiled runtime, this README, and the three SDK reference documents ship in `npm pack`. The SDK has no runtime dependencies on examples, tests, or mocks. Public production imports remain `@gamescore/sdk` and `@gamescore/sdk/host`.
+Only the compiled runtime, this README, the setup guide, and the three SDK reference documents ship in `npm pack`. The SDK has no runtime dependencies on examples, tests, or mocks. Public production imports remain `@gamescore/sdk` and `@gamescore/sdk/host`.
 
 The former `@gamescore/sdk/testing` subpath has moved to `@gamescore/sdk-testing`. For local practice tooling, install `../game-sdk/testing` separately. It is a private development workspace and is not shipped in the SDK archive.
 

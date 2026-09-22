@@ -17,10 +17,11 @@ test("published SDK excludes mocks, examples, tests, and planning files", () => 
   assert.ok(files.includes("dist/index.js"));
   assert.ok(files.includes("dist/host.js"));
   assert.ok(files.includes("docs/events.md"));
+  assert.ok(files.includes("docs/setup.md"));
   for (const path of files) {
     assert.match(
       path,
-      /^(dist\/|README\.md$|package\.json$|docs\/(events|configuration|server)\.md$)/,
+      /^(dist\/|README\.md$|package\.json$|docs\/(setup|events|configuration|server)\.md$)/,
       path,
     );
     assert.doesNotMatch(path, /testing|examples|test\/|plan\.md/, path);

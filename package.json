@@ -6,6 +6,7 @@
   "files": [
     "dist",
     "README.md",
+    "docs/setup.md",
     "docs/events.md",
     "docs/configuration.md",
     "docs/server.md"
